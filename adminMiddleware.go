@@ -24,6 +24,7 @@ func AdminMiddleware(next telebot.HandlerFunc) telebot.HandlerFunc {
 		}
 
 		if !isAdmin {
+			c.Bot().Send(c.Chat(), "Власть над ботом принадлежит лишь админу")
 			return errors.New("команда доступна только администраторам")
 		}
 
